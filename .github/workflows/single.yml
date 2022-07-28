@@ -1,0 +1,23 @@
+on: [push]
+
+jobs:
+  test-everywhere:
+    name: Test Action on all platforms
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run the action
+        uses: potatoqualitee/mssqlsuite@v1.1
+        with:
+          install: sqlengine, sqlclient, sqlpackage, localdb
+
+      - name: Run sqlclient
+        run: sqlcmd -S localhost -U sa -P dbatools.I0 -d tempdb -Q "SELECT @@version;"
+
+      - name: Check collation
+        shell: pwsh
+        run: |
+          ./Test-Collation -ExpectedCollation SQL_Latin1_General_CP1_CI_AS -UserName sa -Password dbatools.I0
+
