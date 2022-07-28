@@ -1,12 +1,3 @@
-param (
-   [ValidateSet("sqlclient","sqlpackage", "sqlengine", "localdb")]
-   [string[]]$Install,
-   [string]$SaPassword,
-   [switch]$ShowLog,
-   [string]$Collation="SQL_Latin1_General_CP1_CI_AS"
-)
-
-if ("sqlengine" -in $Install) {
    Write-Output "Installing SQL Engine"
    
       Write-Output "windows detected, downloading sql server 2019"
@@ -27,6 +18,6 @@ if ("sqlengine" -in $Install) {
       Pop-Location
       
       Write-Output "sql server 2019 installed at localhost and accessible with both windows and sql auth"
-   }
+   
 
 
