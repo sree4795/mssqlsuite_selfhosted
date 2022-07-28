@@ -5,7 +5,7 @@
       if (-not (Test-Path C:\temp)) {
          mkdir c:\tempsql1 -Force
       }
-      Push-Location C:\temp
+      Push-Location C:\tempsql1
       $ProgressPreference = "SilentlyContinue"
       Invoke-WebRequest -Uri https://download.microsoft.com/download/7/c/1/7c14e92e-bdcb-4f89-b7cf-93543e7112d1/SQLServer2019-DEV-x64-ENU.exe -OutFile sqlsetup.exe
       Invoke-WebRequest -Uri https://download.microsoft.com/download/7/c/1/7c14e92e-bdcb-4f89-b7cf-93543e7112d1/SQLServer2019-DEV-x64-ENU.box -OutFile sqlsetup.box
