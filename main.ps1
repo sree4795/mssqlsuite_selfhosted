@@ -2,7 +2,7 @@
     Write-Output "windows detected, downloading sql server 2019"
       # docker takes 16 minutes, this takes 5 minutes
       if (-not (Test-Path C:\temp)) {
-         mkdir c:\temp -Force
+         mkdir C:\temp -Force
       }
       Push-Location C:\temp
       $ProgressPreference = "SilentlyContinue"
